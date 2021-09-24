@@ -86,7 +86,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className="page">
       <header>
         <h1>Mis Clubs</h1>
         <form action="">
@@ -100,7 +100,7 @@ function App() {
       </header>
       <main>
         <section>
-          <ul>
+          <ul className="list">
             {renderClubs()}
           </ul>
         </section>
