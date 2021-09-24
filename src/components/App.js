@@ -7,8 +7,8 @@ function App() {
   const[newClub, setNewClub] = useState (
     {
       name: '',
-      openOnWeekdays: '',
-      openOnWeekend: ''
+      openOnWeekdays: false,
+      openOnWeekend: false
     })
   const [selection, setSelection] = useState ('everyday');
 
@@ -58,7 +58,7 @@ function App() {
   // start filter 
   const handleFilter = (ev) => {
     setSelection(ev.currentTarget.value);
-    
+
     // const filter = ev.currentTarget.value;
     // if (filter === 'openOnWeekdays'){
     //   const dataFiltered = clubs.filter( (club) => {
@@ -128,11 +128,11 @@ function App() {
             <div className="checkboxes">
               <label htmlFor="openOnWeekdays">
               ¿Abre entre semana?
-                <input  onChange={handleNewClub}  className="input"  type="checkbox" name="openOnWeekdays" id="openOnWeekdays" checked={newClub.openOnWeekdays === '' ? false: newClub.openOnWeekdays} />
+                <input  onChange={handleNewClub}  className="input"  type="checkbox" name="openOnWeekdays" id="openOnWeekdays" checked={newClub.openOnWeekdays} />
               </label>
               <label htmlFor="openOnWeekend">
               ¿Abre los fines de semana?
-                <input  onChange={handleNewClub}  className="input" type="checkbox" name="openOnWeekend" id="openOnWeekend" checked={newClub.openOnWeekend === '' ? false : newClub.openOnWeekend} />
+                <input  onChange={handleNewClub}  className="input" type="checkbox" name="openOnWeekend" id="openOnWeekend" checked={newClub.openOnWeekend} />
               </label>             
             </div>
             <input  onClick={handleAddClub}  className="submit" type="submit" value="Añadir un nuevo club" />
