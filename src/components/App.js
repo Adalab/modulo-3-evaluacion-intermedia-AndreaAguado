@@ -80,8 +80,7 @@ function App() {
     const clickedId = ev.currentTarget.id;
     clubs.splice(clickedId, 1);
     console.log(clubs);
-    setClubs(...clubs);
-    renderClubs();
+    setClubs([...clubs]);
   }
 
 
