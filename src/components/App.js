@@ -18,8 +18,8 @@ function App() {
         <li id={index} key={index}>
         <div className="club">
           <h3>#{index} {club.name}</h3>
-          <p>Abierto entre semana: {club.openOnWeekdays = true ? 'Si' : 'No'}</p>
-          <p>Abierto el fin de semana: {club.openOnWeekend = true ? 'Si' : 'No'}</p>
+          <p>Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
+          <p>Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
         </div>
       </li>
     )
@@ -44,6 +44,13 @@ function App() {
   // start handleAddClub()
   const handleAddClub = (ev) => {
     ev.preventDefault();
+    setClubs([...clubs, newClub]);
+    setNewClub(
+      {
+        name: '',
+        openOnWeekdays: '',
+        openOnWeekend: ''
+      })
   }
   // end handleAddClub()
 
@@ -74,11 +81,11 @@ function App() {
             <div className="checkboxes">
               <label htmlFor="openOnWeekdays">
               ¿Abre entre semana?
-                <input  onChange={handleNewClub}  className="input"  type="checkbox" name="openOnWeekdays" id="openOnWeekdays" checked={newClub.openOnWeekdays} />
+                <input  onChange={handleNewClub}  className="input"  type="checkbox" name="openOnWeekdays" id="openOnWeekdays" checked={newClub.openOnWeekdays === '' ? false: newClub.openOnWeekdays} />
               </label>
               <label htmlFor="openOnWeekend">
               ¿Abre los fines de semana?
-                <input  onChange={handleNewClub}  className="input" type="checkbox" name="openOnWeekend" id="openOnWeekend" checked={newClub.openOnWeekend} />
+                <input  onChange={handleNewClub}  className="input" type="checkbox" name="openOnWeekend" id="openOnWeekend" checked={newClub.openOnWeekend === '' ? false : newClub.openOnWeekend} />
               </label>             
             </div>
             <input  onClick={handleAddClub}  className="submit" type="submit" value="Añadir un nuevo club" />
