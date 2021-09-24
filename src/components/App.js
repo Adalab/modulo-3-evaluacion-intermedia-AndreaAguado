@@ -14,6 +14,7 @@ function App() {
 
     // start renderClubs()
   const renderClubs = () => {
+    console.log(clubs);
     const dataFiltered = clubs.filter( (club) => {
       if (selection === 'openOnWeekdays'){
         return club.openOnWeekdays === true;
@@ -29,7 +30,10 @@ function App() {
       return (     
         <li id={index} key={index}>
         <div className="club">
-          <h3>#{index} {club.name}</h3>
+          <span className="clubTitle">
+            <h3>#{index} {club.name}</h3>
+            <button onClick={handleDeleteClub}>x</button>
+          </span>
           <p>Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
           <p>Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
         </div>
@@ -69,6 +73,15 @@ function App() {
   // start filter 
   const handleFilter = (ev) => {
     setSelection(ev.currentTarget.value);
+  }
+
+  const handleDeleteClub = (ev) => {
+    // ev.preventDefault();
+    const clickedId = ev.currentTarget.id;
+    clubs.splice(clickedId, 1);
+    console.log(clubs);
+    setClubs(...clubs);
+    renderClubs();
   }
 
 
