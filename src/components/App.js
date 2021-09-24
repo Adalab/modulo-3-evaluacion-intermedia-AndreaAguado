@@ -14,7 +14,18 @@ function App() {
 
     // start renderClubs()
   const renderClubs = () => {
-    return clubs.map( (club,index) => {
+    const dataFiltered = clubs.filter( (club) => {
+      if (selection === 'openOnWeekdays'){
+        return club.openOnWeekdays === true;
+      }
+      else if (selection === 'openOnWeekend'){
+        return club.openOnWeekend === true;
+      }
+      else {
+        return clubs;
+      }          
+    })
+    return dataFiltered.map( (club,index) => {
       return (     
         <li id={index} key={index}>
         <div className="club">
@@ -58,46 +69,6 @@ function App() {
   // start filter 
   const handleFilter = (ev) => {
     setSelection(ev.currentTarget.value);
-
-    // const filter = ev.currentTarget.value;
-    // if (filter === 'openOnWeekdays'){
-    //   const dataFiltered = clubs.filter( (club) => {
-    //     return club.openOnWeekdays === true;
-    //   })
-    //   console.log(dataFiltered);
-    //   dataFiltered.map( (club,index) => {
-    //     return (     
-    //       <li id={index} key={index}>
-    //       <div className="club">
-    //         <h3>#{index} {club.name}</h3>
-    //         <p>Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
-    //         <p>Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
-    //       </div>
-    //     </li>
-    //   )
-    //   })
-    // }
-    // else if (filter === 'openOnWeekend'){
-    //   const dataFiltered = clubs.filter( (club) => {
-    //     return club.openOnWeekend === true;
-    //   })
-    //   console.log(dataFiltered);
-    //   dataFiltered.map( (club,index) => {
-    //     return (     
-    //       <li id={index} key={index}>
-    //       <div className="club">
-    //         <h3>#{index} {club.name}</h3>
-    //         <p>Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
-    //         <p>Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
-    //       </div>
-    //     </li>
-    //   )
-    //   })
-    // }
-    // else {
-    //   console.log(clubs);
-    //   return clubs;     
-    // }
   }
 
 
