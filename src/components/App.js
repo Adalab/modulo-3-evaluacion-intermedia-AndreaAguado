@@ -1,4 +1,5 @@
 import '../styles/App.css';
+import initialData from '../data/clubsInfo.json';
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
       </header>
       <main>
         <section>
-          <div>
-            <h2>Club</h2>
+          <div className="club">
+            <h3>Club</h3>
             <p>Abierto entre semana:</p>
             <p>Abierto el fin de semana:</p>
           </div>
