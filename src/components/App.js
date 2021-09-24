@@ -1,7 +1,22 @@
 import '../styles/App.css';
+import { useState } from 'react';
 import initialData from '../data/clubsInfo.json';
 
 function App() {
+  const[clubs, setClubs] = useState( initialData);
+  const renderClubs = () => {
+    return clubs.map( (club,index) => {
+      return (     
+        <li id={index} key={index}>
+        <div className="club">
+          <h3>#{index} {club.name}</h3>
+          <p>Abierto entre semana: {club.openOnWeekdays = true ? 'Si' : 'No'}</p>
+          <p>Abierto el fin de semana: {club.openOnWeekend = true ? 'Si' : 'No'}</p>
+        </div>
+      </li>
+    )
+    })
+  }
   return (
     <div>
       <header>
@@ -17,11 +32,9 @@ function App() {
       </header>
       <main>
         <section>
-          <div className="club">
-            <h3>Club</h3>
-            <p>Abierto entre semana:</p>
-            <p>Abierto el fin de semana:</p>
-          </div>
+          <ul>
+            {renderClubs()}
+          </ul>
         </section>
         <section>
           <h2>Añadir un nuevo club</h2>
