@@ -1,4 +1,4 @@
-import '../styles/App.css';
+import '../styles/App.scss';
 import { useState } from 'react';
 import initialData from '../data/clubsInfo.json';
 
