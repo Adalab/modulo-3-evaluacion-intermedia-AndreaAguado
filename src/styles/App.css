@@ -2,10 +2,14 @@
   --dark-color: #8c4af6;
   --medium-color: #b089f6;
   --light-color: #d7c0f6;
+  --title-font: "Pacifico", cursive;
 }
 .page {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--light-color);
+}
+.page-title {
+  font-family: var(--title-font);
 }
 .checkboxes {
   display: flex;
