@@ -13,8 +13,11 @@
 }
 .club {
   border: 2px solid palevioletred;
+  background-color: var(--medium-color);
   width: fit-content;
   border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+  margin: 10px 10px 10px 10px;
 }
 .clubTitle {
   display: flex;
