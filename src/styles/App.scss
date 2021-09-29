@@ -1,39 +1,176 @@
-$dark-color: #8c4af6;
-$medium-color: #b089f6;
-$light-color: #d7c0f6;
-$color-titles: #1d0e35;
-$title-font: "Pacifico", cursive;
+@import "../styles/reset.scss";
+@import "../styles/variables.scss";
 
 .page {
   font-family: Arial, Helvetica, sans-serif;
   background-color: $light-color;
-}
-.page-title {
-  font-family: $title-font;
   color: $color-titles;
+  height: 100vh;
 }
-.checkboxes {
+
+.header {
+  height: 15%;
+  background-color: $medium-color;
   display: flex;
   flex-direction: column;
-}
-.club {
-  border: 2px solid palevioletred;
-  background-color: $medium-color;
-  width: fit-content;
-  border-radius: 5px;
-  padding: 10px 15px 10px 15px;
-  margin: 10px 10px 10px 10px;
-}
-.clubTitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  border-bottom: 2px $dark-color solid;
+  padding-left: 20px;
+  .header_title_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .header_title {
+      font-family: $page-title-font;
+      color: $color-titles;
+      font-size: 40px;
+      margin: 10px 10px 10px 10px;
+    }
+    .header_logo {
+      height: 60px;
+    }
+  }
 }
-.list {
-  list-style: none;
+.main {
+  min-height: 75%;
+  background-color: lightpink;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .input {
+    border-radius: 4px;
+    border: solid 2px $color-titles;
+  }
+  .main_selector_label {
+    font-family: $page-font2;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .main_selector_input {
+    font-family: $page-font2;
+    font-size: 18px;
+  }
+  .clubs_list {
+    padding-bottom: 10px;
+    height: 65%;
+    .list {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .club {
+        border: 2px solid $dark-color;
+        background-color: $medium-color;
+        width: fit-content;
+        border-radius: 5px;
+        padding: 10px 15px 10px 15px;
+        margin: 10px 10px 10px 10px;
+        .club_title_container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: bold;
+          margin-bottom: 5px;
+          .club_title {
+            font-size: 20px;
+            margin-right: 10px;
+            font-family: $page-font;
+            text-transform: capitalize;
+          }
+          .delete_club_button {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            font-size: 25px;
+            line-height: 3px;
+            border: solid 2px $color-titles;
+            background-color: $light-color;
+          }
+          .delete_club_button:hover {
+            border: solid 2px $color-accents;
+            color: $color-accents;
+          }
+        }
+      }
+    }
+  }
+  .add_clubs {
+    height: 35%;
+    width: 100%;
+    border-top: 2px solid $dark-color;
+    margin: 5px 0 5px 0;
+    padding-left: 10px;
+    .add_clubs_title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0 10px 0;
+      font-family: $page-title-font;
+    }
+    .add_clubs_form {
+      .label_text {
+        font-family: $page-font2;
+        font-size: 18px;
+        margin-right: 10px;
+      }
+      .input {
+        padding: 2px 5px 2px 5px;
+        font-size: 16px;
+        color: $color-titles;
+      }
+      .input::placeholder {
+        color: $medium-color;
+      }
+      .checkboxes {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: max-content;
+        margin: 5px 0 5px 0;
+        .checkboxes_label {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-family: $page-font2;
+          font-size: 18px;
+          margin: 5px 0 5px 0;
+        }
+        .checkboxes_input {
+          margin-left: 10px;
+          height: 15px;
+          width: 15px;
+          border-radius: 4px;
+          border: solid 2px $color-titles;
+        }
+      }
+      .submit {
+        background-color: $dark-color;
+        height: 35px;
+        margin: 5px 0 5px 0;
+        border-radius: 6px;
+        border: solid 2px $color-titles;
+        font-family: $page-font2;
+        font-size: 18px;
+        padding: 5px 5px 5px 5px;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $medium-color;
+  height: 10%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px 10px 10px 10px;
+  border-top: 2px solid $dark-color;
+  .footer_small {
+    font-size: 14px;
+  }
 }

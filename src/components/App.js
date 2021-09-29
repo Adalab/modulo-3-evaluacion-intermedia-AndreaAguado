@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import { useState } from 'react';
 import initialData from '../data/clubsInfo.json';
+import header_logo from '../images/extracurriculars.svg';
 
 function App() {
   const [clubs, setClubs] = useState(initialData);
@@ -30,9 +31,9 @@ function App() {
       return (
         <li id={index} key={index}>
           <div className="club">
-            <span className="clubTitle">
-              <h3>#{index} {club.name}</h3>
-              <button onClick={handleDeleteClub}>x</button>
+            <span className="club_title_container">
+              <h3 className="club_title">#{index} {club.name}</h3>
+              <button className="delete_club_button" onClick={handleDeleteClub}>x</button>
             </span>
             <p>Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
             <p>Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
@@ -86,44 +87,48 @@ function App() {
 
   return (
     <div className="page">
-      <header>
-        <h1 className="page-title">Mis Clubs</h1>
+      <header className="header">
+        <div className="header_title_container">
+          <img className="header_logo" src={header_logo} alt="extracurriculars representation" />
+          <h1 className="header_title">Mis Clubs</h1>
+        </div>
+      </header>
+      <main className="main">
         <form action="">
-          <label htmlFor="schedule">Mostrar</label>
-          <select onChange={handleFilter} name="schedule" id="schedule">
+          <label className="main_selector_label" htmlFor="schedule">Mostrar</label>
+          <select className="main_selector_input input" onChange={handleFilter} name="schedule" id="schedule">
             <option value="everyday">Todos</option>
             <option value="openOnWeekdays">Los que abren entre semana</option>
             <option value="openOnWeekend">Los que abren en fin de semana</option>
           </select>
         </form>
-      </header>
-      <main>
-        <section>
+        <section className="clubs_list">
           <ul className="list">
             {renderClubs()}
           </ul>
         </section>
-        <section>
-          <h2>Añadir un nuevo club</h2>
-          <form className="addClub" action="">
-            <label htmlFor="name">Nombre del club</label>
-            <input onChange={handleNewClub} id="name" type="text" value={newClub.name} />
+        <section className="add_clubs">
+          <h2 className="add_clubs_title">Añadir un nuevo club</h2>
+          <form className="add_clubs_form" action="">
+            <label className="label_text" htmlFor="name">Nombre del club</label>
+            <input placeholder="Ej. Dance club" className="input" onChange={handleNewClub} id="name" type="text" value={newClub.name} />
             <div className="checkboxes">
-              <label htmlFor="openOnWeekdays">
+              <label className="checkboxes_label" htmlFor="openOnWeekdays">
                 ¿Abre entre semana?
-                <input onChange={handleNewClub} className="input" type="checkbox" name="openOnWeekdays" id="openOnWeekdays" checked={newClub.openOnWeekdays} />
+                <input onChange={handleNewClub} className="checkboxes_input input" type="checkbox" name="openOnWeekdays" id="openOnWeekdays" checked={newClub.openOnWeekdays} />
               </label>
-              <label htmlFor="openOnWeekend">
+              <label className="checkboxes_label" htmlFor="openOnWeekend">
                 ¿Abre los fines de semana?
-                <input onChange={handleNewClub} className="input" type="checkbox" name="openOnWeekend" id="openOnWeekend" checked={newClub.openOnWeekend} />
+                <input onChange={handleNewClub} className="checkboxes_input input" type="checkbox" name="openOnWeekend" id="openOnWeekend" checked={newClub.openOnWeekend} />
               </label>
             </div>
             <input onClick={handleAddClub} className="submit" type="submit" value="Añadir un nuevo club" />
           </form>
         </section>
       </main>
-
-
+      <footer className="footer">
+        <small className="footer_small"> &copy; Andrea Aguado 2021 </small>
+      </footer>
     </div>
   );
 }
