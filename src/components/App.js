@@ -33,10 +33,10 @@ function App() {
           <div className="club">
             <span className="club_title_container">
               <h3 className="club_title">#{index} {club.name}</h3>
-              <button className="delete_club_button" onClick={handleDeleteClub}>x</button>
+              <button className="delete_club_button" onClick={handleDeleteClub}><i class="fas fa-times delete_club_button_cross"></i></button>
             </span>
-            <p>Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
-            <p>Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
+            <p className="club_info">Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
+            <p className="club_info">Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
           </div>
         </li>
       )
@@ -94,7 +94,7 @@ function App() {
         </div>
       </header>
       <main className="main">
-        <form action="">
+        <form className="main_selector" action="">
           <label className="main_selector_label" htmlFor="schedule">Mostrar</label>
           <select className="main_selector_input input" onChange={handleFilter} name="schedule" id="schedule">
             <option value="everyday">Todos</option>
