@@ -32,8 +32,8 @@ function App() {
         <li id={index} key={index}>
           <div className="club">
             <span className="club_title_container">
-              <h3 className="club_title">#{index} {club.name}</h3>
-              <button className="delete_club_button" onClick={handleDeleteClub}><i class="fas fa-times delete_club_button_cross"></i></button>
+              <h3 className="club_title">#{index + 1} {club.name}</h3>
+              <button className="delete_club_button" onClick={handleDeleteClub}><i className="fas fa-times delete_club_button_cross"></i></button>
             </span>
             <p className="club_info">Abierto entre semana: {club.openOnWeekdays === true ? 'Si' : 'No'}</p>
             <p className="club_info">Abierto el fin de semana: {club.openOnWeekend === true ? 'Si' : 'No'}</p>
@@ -107,6 +107,7 @@ function App() {
             {renderClubs()}
           </ul>
         </section>
+        <button className="delete_everything">Borrar todos<i className="fas fa-trash-alt trash_icon"></i></button>
         <section className="add_clubs">
           <h2 className="add_clubs_title">Añadir un nuevo club</h2>
           <form className="add_clubs_form" action="">

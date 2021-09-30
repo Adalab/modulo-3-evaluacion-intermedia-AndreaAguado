@@ -56,7 +56,6 @@
       font-size: 18px;
     }
   }
-
   .clubs_list {
     padding-bottom: 10px;
     padding-top: 10px;
@@ -101,12 +100,38 @@
             color: $color-titles;
           }
           .delete_club_button:hover {
+            transition: border-color ease 0.2s, color ease 0.2s;
             border: solid 3px $color-accents;
             color: $color-accents;
           }
         }
       }
     }
+  }
+  .delete_everything {
+    padding: 6px 6px 6px 6px;
+    border-radius: 5px;
+    border: 3px solid $color-titles;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $page-font2;
+    color: $color-titles;
+    font-weight: bold;
+    background-color: $dark-color;
+
+    .trash_icon {
+      margin-left: 10px;
+    }
+    .trash_icon:hover {
+      transition: color ease 1s;
+    }
+  }
+  .delete_everything:hover {
+    background-color: $color-accents;
+    transition: background-color ease 0.5s;
   }
   .add_clubs {
     width: 100%;
@@ -164,10 +189,12 @@
         font-family: $page-font2;
         font-size: 18px;
         padding: 5px 5px 5px 5px;
+        font-weight: bold;
       }
       .submit:hover {
+        color: $light-color;
         border-color: $medium-color;
-        font-weight: bold;
+        background-color: $color-titles;
       }
     }
   }
