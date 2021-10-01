@@ -1,10 +1,13 @@
 import '../styles/App.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import initialData from '../data/clubsInfo.json';
 import header_logo from '../images/extracurriculars.svg';
+import localStorage from '../services/local-storage';
 
 function App() {
-  const [clubs, setClubs] = useState(initialData);
+
+  let dataToUse = !localStorage.get('clubs', '') ? initialData : localStorage.get('clubs', '');
+  const [clubs, setClubs] = useState(dataToUse);
   const [newClub, setNewClub] = useState(
     {
       name: '',
@@ -41,6 +44,9 @@ function App() {
     })
   }
 
+  useEffect(() => {
+    localStorage.set('clubs', clubs);
+  }, [clubs]);
 
 
   const handleNewClub = (ev) => {
