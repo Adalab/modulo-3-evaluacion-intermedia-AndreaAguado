@@ -90,7 +90,10 @@ function App() {
     clubs.splice(0, clubs.length);
     setClubs([...clubs]);
   }
-
+  const handleReset = (ev) => {
+    localStorage.remove('clubs');
+    window.location.reload();
+  }
   return (
     <div className="page">
       <header className="header">
@@ -113,7 +116,10 @@ function App() {
             {renderClubs()}
           </ul>
         </section>
-        <button onClick={handleDeleteAll} className="delete_everything">Borrar todos<i className="fas fa-trash-alt trash_icon"></i></button>
+        <div className="buttons_container">
+          <button title="Se borrarán todos los clubs de la caché" onClick={handleDeleteAll} className="button delete_everything">Borrar todos<i className="fas fa-trash-alt trash_icon"></i></button>
+          <button title="Devolver a los valores iniciales" onClick={handleReset} className="button reset">Reset <i class="fas fa-trash-restore-alt trash_icon"></i></button>
+        </div>
         <section className="add_clubs">
           <h2 className="add_clubs_title">Añadir un nuevo club</h2>
           <form className="add_clubs_form" action="">

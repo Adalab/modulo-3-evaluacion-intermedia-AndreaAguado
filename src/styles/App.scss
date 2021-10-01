@@ -108,31 +108,42 @@
       }
     }
   }
-  .delete_everything {
-    padding: 6px 6px 6px 6px;
-    border-radius: 5px;
-    border: 3px solid $color-titles;
-    font-size: 18px;
+  .buttons_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-family: $page-font2;
-    color: $color-titles;
-    font-weight: bold;
-    background-color: $dark-color;
+    width: 100%;
+    justify-content: center;
+    .button {
+      padding: 6px 6px 6px 6px;
+      border-radius: 5px;
+      border: 3px solid $color-titles;
+      font-size: 18px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-family: $page-font2;
+      color: $color-titles;
+      font-weight: bold;
+      background-color: $dark-color;
+      margin: 0 5px 0 5px;
+      .trash_icon {
+        margin-left: 10px;
+      }
+      .trash_icon:hover {
+        transition: color ease 1s;
+      }
+    }
+    .delete_everything:hover {
+      background-color: $color-accents;
+      transition: background-color ease 0.5s;
+    }
+    .reset:hover {
+      background-color: $light-color;
+      transition: background-color ease 0.5s;
+    }
+  }
 
-    .trash_icon {
-      margin-left: 10px;
-    }
-    .trash_icon:hover {
-      transition: color ease 1s;
-    }
-  }
-  .delete_everything:hover {
-    background-color: $color-accents;
-    transition: background-color ease 0.5s;
-  }
   .add_clubs {
     width: 100%;
     border-top: 2px solid $dark-color;
