@@ -13,9 +13,7 @@ function App() {
     })
   const [selection, setSelection] = useState('everyday');
 
-  // start renderClubs()
   const renderClubs = () => {
-    console.log(clubs);
     const dataFiltered = clubs.filter((club) => {
       if (selection === 'openOnWeekdays') {
         return club.openOnWeekdays === true;
@@ -42,9 +40,9 @@ function App() {
       )
     })
   }
-  // end renderClubs()
 
-  //  start handleNewClub()
+
+
   const handleNewClub = (ev) => {
     if (ev.currentTarget.id === 'name') {
       setNewClub({ ...newClub, name: ev.currentTarget.value })
@@ -56,9 +54,9 @@ function App() {
       setNewClub({ ...newClub, openOnWeekend: ev.currentTarget.checked })
     }
   }
-  // end handleNewClub()
 
-  // start handleAddClub()
+
+
   const handleAddClub = (ev) => {
     ev.preventDefault();
     setClubs([...clubs, newClub]);
@@ -69,18 +67,16 @@ function App() {
         openOnWeekend: ''
       })
   }
-  // end handleAddClub()
 
-  // start filter 
+
+
   const handleFilter = (ev) => {
     setSelection(ev.currentTarget.value);
   }
 
   const handleDeleteClub = (ev) => {
-    // ev.preventDefault();
     const clickedId = ev.currentTarget.id;
     clubs.splice(clickedId, 1);
-    console.log(clubs);
     setClubs([...clubs]);
   }
 
