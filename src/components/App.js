@@ -80,6 +80,10 @@ function App() {
     setClubs([...clubs]);
   }
 
+  const handleDeleteAll = (ev) => {
+    clubs.splice(0, clubs.length);
+    setClubs([...clubs]);
+  }
 
   return (
     <div className="page">
@@ -103,7 +107,7 @@ function App() {
             {renderClubs()}
           </ul>
         </section>
-        <button className="delete_everything">Borrar todos<i className="fas fa-trash-alt trash_icon"></i></button>
+        <button onClick={handleDeleteAll} className="delete_everything">Borrar todos<i className="fas fa-trash-alt trash_icon"></i></button>
         <section className="add_clubs">
           <h2 className="add_clubs_title">Añadir un nuevo club</h2>
           <form className="add_clubs_form" action="">
